@@ -326,7 +326,7 @@ const Teacher = () => {
 
   // const handleClose = () => {
 
-  //   axios.post("http://localhost:5000/createstudent",{
+  //   axios.post("https://institute-back-end.onrender.com/createstudent",{
 
   //     studentname: studentname,
   //     departmentname: departmentname,
@@ -356,7 +356,7 @@ const handleCloseShow = () => {
 const handleShowModal = (id) => {
   setUpdate(true)
   // console.log(id)
-  axios.get(`http://localhost:5000/teacher/${id}`).then((data)=>{
+  axios.get(`https://institute-back-end.onrender.com/teacher/${id}`).then((data)=>{
     console.log(data.data[0])
 
     setTeacherName(data.data[0].teachername)
@@ -386,7 +386,7 @@ const handleCreateTeacher = async () => {
 
   try {
     // new student create
-    await axios.post("http://localhost:5000/createteacher", {
+    await axios.post("https://institute-back-end.onrender.com/createteacher", {
       teachername,
       departmentname,
       teacherid,
@@ -396,7 +396,7 @@ const handleCreateTeacher = async () => {
     alert("✅ Teacher created successfully!");
 
     // new list
-    const { data } = await axios.get("http://localhost:5000/allteacher");
+    const { data } = await axios.get("https://institute-back-end.onrender.com/allteacher");
     setTeacherList(data);
 
     //  modal off and reset
@@ -426,7 +426,7 @@ const handleUpdateTeacher = async () => {
   setLoading(true);
 
   try {
-    await axios.post("http://localhost:5000/updateteacher", {
+    await axios.post("https://institute-back-end.onrender.com/updateteacher", {
       id: selectedId, // jake update 
       teachername,
       departmentname,
@@ -436,7 +436,7 @@ const handleUpdateTeacher = async () => {
 
     alert("✅ Teacher updated successfully!");
 
-    const { data } = await axios.get("http://localhost:5000/allteacher");
+    const { data } = await axios.get("https://institute-back-end.onrender.com/allteacher");
     setTeacherList(data);
 
     setShow(false);
@@ -466,7 +466,7 @@ const handleUpdateTeacher = async () => {
 
 useEffect(()=>{
 
-  axios.get("http://localhost:5000/allteacher").then((data)=>{
+  axios.get("https://institute-back-end.onrender.com/allteacher").then((data)=>{
     setTeacherList(data.data)
   })
 
@@ -474,12 +474,12 @@ useEffect(()=>{
 
 let handleDelete = (id)=>{
   console.log(id)
-  axios.post("http://localhost:5000/deleteteacher", { id })
+  axios.post("https://institute-back-end.onrender.com/deleteteacher", { id })
 .then(()=>{
 
     alert("✅ Teacher deleted successfully!");
 
-    axios.get("http://localhost:5000/allteacher").then((data)=>{
+    axios.get("https://institute-back-end.onrender.com/allteacher").then((data)=>{
    setTeacherList(data.data);
   });
 

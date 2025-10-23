@@ -123,7 +123,7 @@ const Login = () => {
 
     try {
       setLoading(true);
-      const res = await axios.post("http://localhost:5000/login", formData);
+      const res = await axios.post("https://institute-back-end.onrender.com/login", formData);
 
       // message show + redirect
       if (res.status === 200) {

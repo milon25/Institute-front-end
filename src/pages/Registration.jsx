@@ -48,7 +48,7 @@
 //         }
 
 //         if(userName && email && password){
-//           axios.post("http://localhost:5000/registration",{
+//           axios.post("https://institute-back-end.onrender.com/registration",{
 //             userName: userName,
 //             email: email,
 //             password: password
@@ -197,7 +197,7 @@ const Registration = () => {
 
     try {
       setLoading(true);
-      const res = await axios.post("http://localhost:5000/registration", formData);
+      const res = await axios.post("https://institute-back-end.onrender.com/registration", formData);
 
       if (res.status === 201 || res.data.includes("Registration successful")) {
         setSuccess("✅ Registration successful!");

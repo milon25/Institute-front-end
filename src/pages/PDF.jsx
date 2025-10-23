@@ -94,13 +94,13 @@ const handleCreateBook = async () => {
   formData.append("serial", serial);
 
   try {
-    await axios.post("http://localhost:5000/uploadbook", formData, {
+    await axios.post("https://institute-back-end.onrender.com/uploadbook", formData, {
       headers: { "Content-Type": "multipart/form-data" }
     });
 
     alert("✅ Book created successfully!");
 
-    const { data } = await axios.get("http://localhost:5000/allbook");
+    const { data } = await axios.get("https://institute-back-end.onrender.com/allbook");
     setBookList(data);
 
     setShow(false);
@@ -132,7 +132,7 @@ const handleCreateBook = async () => {
 
 useEffect(()=>{
 
-  axios.get("http://localhost:5000/allbook").then((data)=>{
+  axios.get("https://institute-back-end.onrender.com/allbook").then((data)=>{
     setBookList(data.data)
   })
 
@@ -140,13 +140,13 @@ useEffect(()=>{
 
 let handleDelete = (id)=>{
   console.log(id)
-  axios.post("http://localhost:5000/deletebook",{
+  axios.post("https://institute-back-end.onrender.com/deletebook",{
     id: id
   }).then(()=>{
 
     alert("✅ Book deleted successfully!");
 
-    axios.get("http://localhost:5000/allbook").then((data)=>{
+    axios.get("https://institute-back-end.onrender.com/allbook").then((data)=>{
    setBookList(data.data);
   });
 
@@ -272,7 +272,7 @@ let handleDelete = (id)=>{
           <td> {item.department} </td>
           <td> {item.writer} </td>
           <td> {item.serial} </td>
-          <td><Link to={`http://localhost:5000/${item.url}`} target='_blank'>Read</Link></td>
+          <td><Link to={`https://institute-back-end.onrender.com/${item.url}`} target='_blank'>Read</Link></td>
 
           
           

@@ -27,7 +27,7 @@ const Student = () => {
 
   // const handleClose = () => {
 
-  //   axios.post("http://localhost:5000/createstudent",{
+  //   axios.post("https://institute-back-end.onrender.com/createstudent",{
 
   //     studentname: studentname,
   //     departmentname: departmentname,
@@ -57,7 +57,7 @@ const handleCloseShow = () => {
 const handleShowModal = (id) => {
   setUpdate(true)
   // console.log(id)
-  axios.get(`http://localhost:5000/student/${id}`).then((data)=>{
+  axios.get(`https://institute-back-end.onrender.com/student/${id}`).then((data)=>{
     console.log(data.data[0])
 
     setStudentName(data.data[0].studentname)
@@ -87,7 +87,7 @@ const handleCreateStudent = async () => {
 
   try {
     // new student create
-    await axios.post("http://localhost:5000/createstudent", {
+    await axios.post("https://institute-back-end.onrender.com/createstudent", {
       studentname,
       departmentname,
       studentid,
@@ -97,7 +97,7 @@ const handleCreateStudent = async () => {
     alert("✅ Student created successfully!");
 
 
-    const { data } = await axios.get("http://localhost:5000/allstudent");
+    const { data } = await axios.get("https://institute-back-end.onrender.com/allstudent");
     setStudentList(data);
 
   
@@ -127,7 +127,7 @@ const handleUpdateStudent = async () => {
   setLoading(true);
 
   try {
-    await axios.post("http://localhost:5000/updatestudent", {
+    await axios.post("https://institute-back-end.onrender.com/updatestudent", {
       id: selectedId, // update
       studentname,
       departmentname,
@@ -137,7 +137,7 @@ const handleUpdateStudent = async () => {
 
     alert("✅ Student updated successfully!");
 
-    const { data } = await axios.get("http://localhost:5000/allstudent");
+    const { data } = await axios.get("https://institute-back-end.onrender.com/allstudent");
     setStudentList(data);
 
     setShow(false);
@@ -167,7 +167,7 @@ const handleUpdateStudent = async () => {
 
 useEffect(()=>{
 
-  axios.get("http://localhost:5000/allstudent").then((data)=>{
+  axios.get("https://institute-back-end.onrender.com/allstudent").then((data)=>{
     setStudentList(data.data)
   })
 
@@ -175,13 +175,13 @@ useEffect(()=>{
 
 let handleDelete = (id)=>{
   console.log(id)
-  axios.post("http://localhost:5000/deletestudent",{
+  axios.post("https://institute-back-end.onrender.com/deletestudent",{
     id: id
   }).then(()=>{
 
     alert("✅ Student deleted successfully!");
 
-    axios.get("http://localhost:5000/allstudent").then((data)=>{
+    axios.get("https://institute-back-end.onrender.com/allstudent").then((data)=>{
    setStudentList(data.data);
   });
 
