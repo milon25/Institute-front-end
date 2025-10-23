@@ -1,0 +1,267 @@
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+
+
+
+
+
+.login{
+    padding-top: 80px;
+    background: rgb(155, 107, 107);
+    height: 100vh;
+}
+
+.main{
+    display: flex;
+}
+
+.left{
+    width: 20%;
+}
+
+.right{
+    width: 80%;
+}
+
+.sidebar{
+    background-color: blueviolet;
+    height: 100vh;
+    color: white;
+}
+
+
+.list{
+    padding-top: 150px;
+}
+
+/* 
+.logo img{
+    width: 150px;
+    height: 150px;
+    background-repeat: no-repeat;
+    background-position: center;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.registration-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #007bff1a, #6f42c11a);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding-top: 40px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ====== LOGO SECTION ====== */
+.logo-section {
+  margin-bottom: 25px;
+  animation: fadeIn 1.5s ease;
+}
+
+.institute-logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.4s ease;
+}
+
+.institute-logo:hover {
+  transform: scale(1.08);
+}
+
+.institute-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #222;
+  margin-top: 15px;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* ====== FORM ====== */
+.form-container {
+  background-color: #fff;
+  padding: 35px 30px;
+  border-radius: 20px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 420px;
+  animation: slideUp 1s ease;
+}
+
+.input-icon {
+  position: relative;
+}
+
+.input-icon .icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #777;
+}
+
+.input-icon .form-control {
+  padding-left: 38px;
+  border-radius: 12px;
+  height: 45px;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #666;
+}
+
+/* ====== BUTTON ====== */
+.submit-btn {
+  border-radius: 12px;
+  font-weight: 500;
+  padding: 10px;
+  background: linear-gradient(45deg, #007bff, #6f42c1);
+  border: none;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(111, 66, 193, 0.4);
+}
+
+/* ====== ANIMATIONS ====== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .institute-logo {
+    width: 90px;
+    height: 90px;
+  }
+  .institute-title {
+    font-size: 1.4rem;
+  }
+  .form-container {
+    padding: 25px;
+  }
+}
+
+
+
+button {
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+
+
+
+/* sibar h start */
+
+.sidebar {
+  background-color: #222b37;
+  color: #fff;
+  width: 250px;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 3px 0 8px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sidebar h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #f5f6fa;
+  background: linear-gradient(90deg, #00cec9, #0984e3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sidebar .list {
+  flex: 1;
+}
+
+.sidebar .list .list-group-item {
+  background-color: #2f3640;
+  color: #dcdde1;
+  border: none;
+  margin-bottom: 5px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.sidebar .list .list-group-item:hover {
+  background-color: #00cec9;
+  color: #fff;
+  transform: translateX(5px);
+}
+
+.sidebar button {
+  margin-top: 20px;
+  width: 100%;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.sidebar button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+
+/* sidebar style end here */
+
+
+
+
+
+
