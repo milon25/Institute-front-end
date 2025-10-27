@@ -6,6 +6,7 @@ import Teacher from "./pages/Teacher";
 import Student from "./pages/Student";
 import PDF from "./pages/PDF";
 import 'animate.css';
+import Leave from "./pages/Leave";
 
 
 
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/teacher" element={<Teacher />} />
         <Route path="/student" element={<Student />} />
         <Route path="/pdf" element={<PDF />} />
+        <Route path="/leave" element={<Leave />} />
       </Routes>
     </>
   );

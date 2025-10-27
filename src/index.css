@@ -257,11 +257,13 @@ button:hover {
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-
-/* sidebar style end here */
-
+/* end here */
 
 
 
+.offcanvas-bottom{
+  height: 100vh !important;
+ 
+}
 
 
