@@ -28,7 +28,7 @@ const Sidebar = () => {
       <ListGroup.Item> <Link to="/teacher">Teacher</Link></ListGroup.Item>
       <ListGroup.Item> <Link to="/student">Student</Link></ListGroup.Item>
       <ListGroup.Item><Link to="/pdf">PDF</Link></ListGroup.Item>
-      <ListGroup.Item>Result</ListGroup.Item>
+      <ListGroup.Item><Link to="/result">Result</Link></ListGroup.Item>
       <ListGroup.Item><Link to="/leave">Leave</Link></ListGroup.Item>
     
     </ListGroup>

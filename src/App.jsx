@@ -7,6 +7,8 @@ import Student from "./pages/Student";
 import PDF from "./pages/PDF";
 import 'animate.css';
 import Leave from "./pages/Leave";
+import Result from "./pages/Result";
+
 
 
 
@@ -21,6 +23,7 @@ const App = () => {
         <Route path="/student" element={<Student />} />
         <Route path="/pdf" element={<PDF />} />
         <Route path="/leave" element={<Leave />} />
+        <Route path="/result" element={<Result />} />
       </Routes>
     </>
   );

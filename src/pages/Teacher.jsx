@@ -496,9 +496,21 @@ let handleDelete = (id)=>{
           <Sidebar/>
 
         </div>
-       <div className='right'><Button variant="primary" onClick={handleShow}>
+       <div className='right'>
+
+
+        <div className="header-bar d-flex justify-content-between align-items-center">
+          <h4>🧑‍🏫 Teacher Management</h4>
+          <Button variant="primary" onClick={handleShow} className="create-btn">
+            ➕ Add Teacher
+          </Button>
+        </div>
+        
+        
+        
+        {/* <Button variant="primary" onClick={handleShow}>
         Add a Teacher
-      </Button>
+      </Button> */}
 
       <Modal show={show} onHide={handleCloseShow}>
         <Modal.Header closeButton>
