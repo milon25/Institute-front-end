@@ -425,9 +425,9 @@ const Result = () => {
                     <td>{rec.departmentname || "—"}</td>
                     <td>{showCgpa(rec.cgpa)}</td>
                     <td style={{ display: "flex", gap: 8, justifyContent: "center" }}>
-                      <Button size="sm" variant="outline-primary" onClick={() => toggleDetails(rec._id)}>
+                      {/* <Button size="sm" variant="outline-primary" onClick={() => toggleDetails(rec._id)}>
                         {expandedMap[rec._id] ? "Hide" : "Details"}
-                      </Button>
+                      </Button> */}
                       <Button size="sm" variant="danger" onClick={() => deleteResult(rec._id)}>Delete</Button>
                     </td>
                   </tr>

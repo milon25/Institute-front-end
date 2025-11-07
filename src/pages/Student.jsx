@@ -199,7 +199,7 @@ let handleDelete = (id)=>{
 
         </div>
        <div className='right'><Button variant="primary" onClick={handleShow}>
-        Add a Student
+       ➕ Add a Student
       </Button>
 
       <Modal show={show} onHide={handleCloseShow}>
