@@ -1,95 +1,5 @@
-// import Button from 'react-bootstrap/Button';
-// import Form from 'react-bootstrap/Form';
-// import Container from 'react-bootstrap/Container';
-// import Alert from 'react-bootstrap/Alert';
-// import { useState } from 'react';
-// import { Link } from 'react-router';
 
-// const Login = () => {
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [emailError, setEmailError] = useState("");
-//   const [passwordError, setPasswordError] = useState("");
-
-//   const handleEmailChange = (e) => {
-//     setEmail(e.target.value);
-//     setEmailError("");
-//   };
-
-//   const handlePasswordChange = (e) => {
-//     setPassword(e.target.value);
-//     setPasswordError("");
-//   };
-
-//   const handleFormSubmit = (e) => {
-//     e.preventDefault();
-
-//     let valid = true;
-
-//     if (!email) {
-//       setEmailError("Email required");
-//       valid = false;
-//     }
-
-//     if (!password) {
-//       setPasswordError("Password required");
-//       valid = false;
-//     }
-
-//     if (valid) {
-//       console.log("Form submitted:", { email, password });
-//       // এখানে API কল বা redirect করতে পারো
-//     }
-//   };
-
-//   return (
-//     <div className='login'>
-//       <Container>
-//         <Form onSubmit={handleFormSubmit}>
-//           <Form.Group className="mb-3" controlId="formBasicEmail">
-//             <Form.Label>Email address</Form.Label>
-//             <Form.Control onChange={handleEmailChange} type="email" placeholder="Enter email" />
-//             {emailError && (
-//               <Alert key="danger" variant="danger">
-//                 {emailError}
-//               </Alert>
-//             )}
-//           </Form.Group>
-
-//           <Form.Group className="mb-3" controlId="formBasicPassword">
-//             <Form.Label>Password</Form.Label>
-//             <Form.Control onChange={handlePasswordChange} type="password" placeholder="Password" />
-//             {passwordError && (
-//               <Alert key="danger" variant="danger">
-//                 {passwordError}
-//               </Alert>
-//             )}
-//           </Form.Group>
-
-//           <Button variant="primary" type="submit">
-//             Submit
-//           </Button>
-//         </Form>
-
-//          <Alert key="info" variant="info">
-//           Don't have an account ? <Link to="/">Registration</Link>
-//         </Alert>
-
-//       </Container>
-//     </div>
-//   );
-// };
-
-// export default Login;
-
-
-
-
-
-
-
-
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Form, Container, Alert, Spinner } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -102,6 +12,7 @@ const Login = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   // Input handle 
@@ -128,15 +39,14 @@ const Login = () => {
       // message show + redirect
       if (res.status === 200) {
         setSuccess(res.data.message || "✅ Login successful!");
-        // user info 
+        // save user info
         localStorage.setItem("user", JSON.stringify(res.data.user));
 
-        // redirect after 1.5s
+        // redirect
         setTimeout(() => navigate("/teacher"), 1500);
       }
     } catch (err) {
       console.error("❌ Login Error:", err);
-      
       const msg = err.response?.data || "❌ Invalid login credentials!";
       setError(msg);
     } finally {
@@ -145,22 +55,18 @@ const Login = () => {
   };
 
   useEffect(()=> {
-    let data = localStorage.getItem("user")
+    let data = localStorage.getItem("user");
     if(data){
-      navigate("/student")
+      navigate("/student");
     }
-
-  },[])
+  }, [navigate]);
 
   return (
     <div className="login">
       <Container style={{ maxWidth: "500px", marginTop: "50px" }}>
         <h2 className="mb-4 text-center">🔐 Login to Your Account</h2>
 
-        {/* ✅ Success Message */}
         {success && <Alert variant="success">{success}</Alert>}
-
-        {/* ❌ Error Message */}
         {error && <Alert variant="danger">{error}</Alert>}
 
         <Form onSubmit={handleSubmit} className="shadow p-4 rounded bg-light">
@@ -176,16 +82,38 @@ const Login = () => {
             />
           </Form.Group>
 
-          {/* Password */}
+          {/* Password with show/hide */}
           <Form.Group className="mb-4">
             <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              name="password"
-              placeholder="Enter your password"
-              value={formData.password}
-              onChange={handleChange}
-            />
+            <div style={{ position: "relative" }}>
+              <Form.Control
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="Enter your password"
+                value={formData.password}
+                onChange={handleChange}
+              />
+
+              {/* use button type="button" so it won't submit the form */}
+              <button
+                type="button"
+                onClick={() => setShowPassword((s) => !s)}
+                aria-label={showPassword ? "Hide password" : "Show password"}
+                style={{
+                  position: "absolute",
+                  right: "10px",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  background: "transparent",
+                  border: "none",
+                  cursor: "pointer",
+                  fontSize: "18px",
+                  padding: 0,
+                }}
+              >
+                {showPassword ? "🙈" : "👁️"}
+              </button>
+            </div>
           </Form.Group>
 
           <div className="d-grid">
@@ -204,10 +132,3 @@ const Login = () => {
 };
 
 export default Login;
-
-
-
-
-
-
-

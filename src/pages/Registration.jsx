@@ -1,157 +1,3 @@
-// import Button from 'react-bootstrap/Button';
-// import Form from 'react-bootstrap/Form';
-// import Container from 'react-bootstrap/Container';
-// import { useState } from 'react';
-// import Alert from 'react-bootstrap/Alert';
-// import { data, Link } from 'react-router';
-// import axios from 'axios';
-
-
-// const Registration = () => {
-
-
-//     let [userName,setUserName] = useState("")
-//     let [email,setEmail] = useState("")
-//     let [password,setPassword]= useState("")
-
-//     let [userNameError,setUserNameError] = useState("")
-//     let [emailError,setEmailError] = useState("")
-//     let [passwordError,setPasswordError]= useState("")
-
-//     let handleUserNameChange = (e) =>{
-//         setUserName("e.target.value")
-//         setUserNameError("")
-//     }
-
-//      let handleEmailChange = (e) =>{
-//         setEmail("e.target.value")
-//         setEmailError("")
-//     }
-
-//      let handlePasswordChange = (e) =>{
-//         setPassword("e.target.value")
-//         setPasswordError("")
-//     }
-
-//     let handleFormSubmit = (e)=>{
-//         e.preventDefault()
-//         if(!userName){
-//             setUserNameError("Username required")
-//         }
-
-//          if(!email){
-//             setEmailError("Email required")
-//         }
-
-//          if(!password){
-//             setPasswordError("Password required")
-//         }
-
-//         if(userName && email && password){
-//           axios.post("https://institute-back-end.onrender.com/registration",{
-//             userName: userName,
-//             email: email,
-//             password: password
-//           }).then((data)=>{
-//             console.log(data)
-
-//           })
-//         }
-//     }
-
-//   return (
-
-
-
-
-    
-
-
-//     <div className='registration'>
-
-
-//       <div className='logo'>
-
-//         <img src="Images/thakurgaonpl.jpg" alt="Image loading" />
-
-//         <h1>Thakurgaon Polytechnic Institute</h1>
-//       </div>
-
-
-
-//         <Container>
-//         <Form>
-//       <Form.Group className="mb-3" controlId="formBasicEmail">
-//         <Form.Label>User Name</Form.Label>
-//         <Form.Control onChange={handleUserNameChange} type="text" placeholder="Enter username" />
-      
-      
-//       {
-//         userNameError &&
-//        <Alert key="danger" variant="danger">
-//           {userNameError}
-//         </Alert>
-//       }
-
-//       </Form.Group>
-
-
-//       <Form.Group className="mb-3" controlId="formBasicEmail">
-//         <Form.Label>Email address</Form.Label>
-//         <Form.Control onChange={handleEmailChange} type="email" placeholder="Enter email" />
-        
-//           {
-//         emailError &&
-//        <Alert key="danger" variant="danger">
-//           {emailError}
-//         </Alert>
-//       }
-//        </Form.Group>
-      
-
-//       <Form.Group className="mb-3" controlId="formBasicPassword">
-//         <Form.Label>Password</Form.Label>
-//         <Form.Control onChange={handlePasswordChange} type="password" placeholder="Password" />
-      
-      
-
-//          {
-//         passwordError &&
-//        <Alert key="danger" variant="danger">
-//           {passwordError}
-//         </Alert>
-//       }
-//       </Form.Group>
-      
-//       <Button onClick={handleFormSubmit} variant="primary" type="submit">
-//         Submit
-//       </Button>
-//     </Form>
-
-
-//     <Alert key="info" variant="info">
-//           Already have an account ? <Link to="/login">Login</Link>
-//         </Alert>
-
-//     </Container>
-//     </div>
-//   )
-// }
-
-// export default Registration;
-
-
-
-
-
-
-
-
-
-
-// this is my 2 number code start here
-
-
 import { useEffect, useState } from "react";
 import { Button, Form, Container, Alert, Spinner } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
@@ -168,6 +14,8 @@ const Registration = () => {
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+
 
   // ✅ Input handle
   const handleChange = (e) => {
@@ -175,7 +23,7 @@ const Registration = () => {
     setErrors({ ...errors, [e.target.name]: "" });
   };
 
-  
+
   const validate = () => {
     const newErrors = {};
     if (!formData.username) newErrors.username = "⚠️ Username is required";
@@ -203,14 +51,14 @@ const Registration = () => {
         setSuccess("✅ Registration successful!");
         console.log(res.data);
 
-     
+
         setFormData({ username: "", email: "", password: "" });
 
         setTimeout(() => navigate("/login"), 1500);
       }
     } catch (err) {
       console.error("❌ Registration Error:", err);
-    
+
       setSuccess(err.response?.data || "❌ Something went wrong! Try again.");
     } finally {
       setLoading(false);
@@ -218,13 +66,13 @@ const Registration = () => {
   };
 
 
-   useEffect(()=> {
-      let data = localStorage.getItem("user")
-      if(data){
-        navigate("/student")
-      }
-  
-    },[])
+  useEffect(() => {
+    let data = localStorage.getItem("user")
+    if (data) {
+      navigate("/student")
+    }
+
+  }, [])
 
   return (
     <div className="registration">
@@ -238,7 +86,7 @@ const Registration = () => {
         )}
 
         <Form onSubmit={handleSubmit} className="shadow p-4 rounded bg-light">
-          {/* Username */}
+          {/* Username set korar jonne eita banabno hoiche */}
           <Form.Group className="mb-3">
             <Form.Label>Username</Form.Label>
             <Form.Control
@@ -253,7 +101,7 @@ const Registration = () => {
             )}
           </Form.Group>
 
-          {/* Email */}
+          {/* Email er jonne eita check */}
           <Form.Group className="mb-3">
             <Form.Label>Email address</Form.Label>
             <Form.Control
@@ -268,19 +116,58 @@ const Registration = () => {
             )}
           </Form.Group>
 
-          {/* Password */}
+          {/* Password filed korar jonne ba error show korar jonne */}
           <Form.Group className="mb-4">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              name="password"
-              type="password"
-              placeholder="Enter password"
-              value={formData.password}
-              onChange={handleChange}
-            />
-            {errors.password && (
-              <small className="text-danger">{errors.password}</small>
-            )}
+
+
+
+
+            <Form.Group className="mb-4">
+
+
+              <Form.Label>Password</Form.Label>
+              <div style={{ position: "relative" }}>
+                <Form.Control
+                  name="password"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Enter password"
+                  value={formData.password}
+                  onChange={handleChange}
+                />
+
+                {/* 👁️ Show/Hide Button */}
+                <span
+                  onClick={() => setShowPassword(!showPassword)}
+                  style={{
+                    position: "absolute",
+                    right: "10px",
+                    top: "50%",
+                    transform: "translateY(-50%)",
+                    cursor: "pointer",
+                    color: "#555",
+                    fontSize: "14px"
+                  }}
+                >
+                  {showPassword ? "Hide" : "Show"}
+                </span>
+              </div>
+
+              {errors.password && (
+                <small className="text-danger">{errors.password}</small>
+              )}
+
+
+              <Form.Group className="mb-4">
+
+
+              </Form.Group>
+
+
+
+
+            </Form.Group>
+
+
           </Form.Group>
 
           <div className="d-grid">
@@ -302,7 +189,6 @@ export default Registration;
 
 
 
-// 2 number cod end here
 
 
 

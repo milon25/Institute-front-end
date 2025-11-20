@@ -1,301 +1,3 @@
-// import React, { useEffect } from 'react'
-// import Sidebar from '../assets/components/Sidebar'
-// import { useState } from 'react';
-// import Button from 'react-bootstrap/Button';
-// import Modal from 'react-bootstrap/Modal';
-// import Form from 'react-bootstrap/Form';
-// import Table from 'react-bootstrap/Table';
-// import axios from 'axios';
-// import { useNavigate } from 'react-router';
-
-// const Teacher = () => {
-//   let navigate = useNavigate()
-//    const [show, setShow] = useState(false);
-//    let [userData,setUserData] = useState([]);
-
-//   const handleClose = () => setShow(false);
-//   const handleShow = () => setShow(true);
-
-
- 
-
-//   useEffect(()=>{
-//     axios.get("https://jsonplaceholder.typicode.com/users").then((data)=>{
-//       setUserData(data.data)
-//     })
-
-//   },[])
-
-//      useEffect(()=>{
-//         let user = localStorage.getItem("user")
-//         if(!user){
-//           navigate("/login")
-//         }
-//       },[])
-
-
-//   return (
-//     <div>
-
-//        <div className='main'>
-
-//         <div className='left'>
-
-//           <Sidebar/>
-
-//         </div>
-//        <div className='right'><Button variant="primary" onClick={handleShow}>
-//         Add a Teacher
-//       </Button>
-
-//       <Modal show={show} onHide={handleClose}>
-//         <Modal.Header closeButton>
-//           <Modal.Title>Add Teacher</Modal.Title>
-//         </Modal.Header>
-//         <Modal.Body>
-
-//           <Form>
-//       <Form.Group className="mb-3" controlId="formBasicEmail">
-//         <Form.Label>Teacher Name</Form.Label>
-//         <Form.Control type="text" placeholder="Enter your name" />
-        
-//       </Form.Group>
-
-//        <Form.Group className="mb-3" controlId="formBasicEmail">
-//         <Form.Label>Department Name</Form.Label>
-//         <Form.Control type="text" placeholder="Enter Department name" />
-        
-//       </Form.Group>
-
-
-//       <Form.Group className="mb-3" controlId="formBasicEmail">
-//         <Form.Label>Teacher I'd</Form.Label>
-//         <Form.Control type="text" placeholder="Enter your I'd" />
-//         </Form.Group>
-
-//         <Form.Group className="mb-3" controlId="formBasicEmail">
-//         <Form.Label>Phone Number</Form.Label>
-//         <Form.Control type="text" placeholder="Enter phone number" />
-//         </Form.Group>
-
-
-      
-      
-//     </Form></Modal.Body>
-//         <Modal.Footer>
-//           <Button variant="secondary" onClick={handleClose}>
-//                     Cancel
-//                   </Button>
-         
-//           <Button variant="primary" onClick={handleClose}>
-//             Create Teacher
-//           </Button>
-//         </Modal.Footer>
-//       </Modal>
-      
-      
-//        <Table striped bordered hover>
-//       <thead>
-//         <tr>
-//           <th>#</th>
-//           <th>Teacher Name</th>
-//           <th>Department</th>
-//           <th>Phone number</th>
-//         </tr>
-//       </thead>
-//       <tbody>
-
-//         {userData.map((item,index)=>(
-
-//            <tr>
-//           <td>{index+1}</td>
-//           <td>{item.name}</td>
-//           <td>{item.username}</td>
-//           <td>{item.email}</td>
-//         </tr>
-        
-
-//         ))}
-       
-//       </tbody>
-//     </Table></div>
-
-//        </div>
-       
-      
-//     </div>
-//   )
-// }
-
-// export default Teacher
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React, { useEffect, useState } from 'react';
-// import { useNavigate } from 'react-router';
-// import Sidebar from '../assets/components/Sidebar';
-// import Button from 'react-bootstrap/Button';
-// import Modal from 'react-bootstrap/Modal';
-// import Form from 'react-bootstrap/Form';
-// import Table from 'react-bootstrap/Table';
-// import axios from 'axios';
-
-// const Teacher = () => {
-//   const navigate = useNavigate();
-
-//   // Modal state
-//   const [show, setShow] = useState(false);
-
-//   // Teacher data
-//   const [userData, setUserData] = useState([]);
-
-//   // Loading state for login check
-//   const [loading, setLoading] = useState(true);
-
-//   const handleClose = () => setShow(false);
-//   const handleShow = () => setShow(true);
-
-//   // ✅ Fetch teacher data
-//   useEffect(() => {
-//     axios.get("https://jsonplaceholder.typicode.com/users")
-//       .then((data) => setUserData(data.data))
-//       .catch((err) => console.error("Error fetching users:", err));
-//   }, []);
-
-//   // ✅ Login check
-//   useEffect(() => {
-//     const user = localStorage.getItem("user");
-//     if (!user) {
-//       navigate("/login", { replace: true });
-//     } else {
-//       setLoading(false); // user exists, show page
-//     }
-//   }, [navigate]);
-
-//   // ✅ Show loading while checking login
-//   if (loading) return <div style={{ textAlign: "center", marginTop: "50px" }}>Checking login...</div>;
-
-//   return (
-//     <div className='main'>
-//       <div className='left'>
-//         <Sidebar />
-//       </div>
-
-//       <div className='right'>
-//         <Button variant="primary" onClick={handleShow}>
-//           Add a Teacher
-//         </Button>
-
-//         {/* Modal */}
-//         <Modal show={show} onHide={handleClose}>
-//           <Modal.Header closeButton>
-//             <Modal.Title>Add Teacher</Modal.Title>
-//           </Modal.Header>
-//           <Modal.Body>
-//             <Form>
-//               <Form.Group className="mb-3">
-//                 <Form.Label>Teacher Name</Form.Label>
-//                 <Form.Control type="text" placeholder="Enter your name" />
-//               </Form.Group>
-
-//               <Form.Group className="mb-3">
-//                 <Form.Label>Department Name</Form.Label>
-//                 <Form.Control type="text" placeholder="Enter Department name" />
-//               </Form.Group>
-
-//               <Form.Group className="mb-3">
-//                 <Form.Label>Teacher ID</Form.Label>
-//                 <Form.Control type="text" placeholder="Enter your ID" />
-//               </Form.Group>
-
-//               <Form.Group className="mb-3">
-//                 <Form.Label>Phone Number</Form.Label>
-//                 <Form.Control type="text" placeholder="Enter phone number" />
-//               </Form.Group>
-//             </Form>
-//           </Modal.Body>
-//           <Modal.Footer>
-//             <Button variant="secondary" onClick={handleClose}>
-//               Cancel
-//             </Button>
-//             <Button variant="primary" onClick={handleClose}>
-//               Create Teacher
-//             </Button>
-//           </Modal.Footer>
-//         </Modal>
-
-//         {/* Teacher Table */}
-//         <Table striped bordered hover className="mt-4">
-//           <thead>
-//             <tr>
-//               <th>#</th>
-//               <th>Teacher Name</th>
-//               <th>Department</th>
-//               <th>Phone number</th>
-//             </tr>
-//           </thead>
-//           <tbody>
-//             {userData.map((item, index) => (
-//               <tr key={item.id}>
-//                 <td>{index + 1}</td>
-//                 <td>{item.name}</td>
-//                 <td>{item.username}</td>
-//                 <td>{item.email}</td>
-//               </tr>
-//             ))}
-//           </tbody>
-//         </Table>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Teacher;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 import React, { useEffect } from 'react'
 import Sidebar from '../assets/components/Sidebar'
@@ -324,27 +26,6 @@ const Teacher = () => {
 
 
 
-  // const handleClose = () => {
-
-  //   axios.post("https://institute-back-end.onrender.com/createstudent",{
-
-  //     studentname: studentname,
-  //     departmentname: departmentname,
-  //     studentid: studentid,
-  //     phonenumber: phonenumber
-  //   }).then(()=>{
-  //     setShow(false)
-
-  //   })
-
-    
-  // };
-
-
- 
-
-
-
 const handleShow = () => setShow(true);
 
 const handleCloseShow = () => {
@@ -355,7 +36,6 @@ const handleCloseShow = () => {
 
 const handleShowModal = (id) => {
   setUpdate(true)
-  // console.log(id)
   axios.get(`https://institute-back-end.onrender.com/teacher/${id}`).then((data)=>{
     console.log(data.data[0])
 
@@ -376,7 +56,6 @@ const handleShowModal = (id) => {
 
 
 const handleCreateTeacher = async () => {
-  // field check
   if (!teachername || !departmentname || !teacherid || !phonenumber) {
     alert("⚠️ Please fill in all fields before creating a student!");
     return; 
@@ -385,7 +64,7 @@ const handleCreateTeacher = async () => {
   setLoading(true);
 
   try {
-    // new student create
+    // notun student create
     await axios.post("https://institute-back-end.onrender.com/createteacher", {
       teachername,
       departmentname,
@@ -395,11 +74,11 @@ const handleCreateTeacher = async () => {
 
     alert("✅ Teacher created successfully!");
 
-    // new list
+   
     const { data } = await axios.get("https://institute-back-end.onrender.com/allteacher");
     setTeacherList(data);
 
-    //  modal off and reset
+    //  modal off r rest korar jonne eita
     setShow(false);
     setTeacherName("");
     setDepartmentName("");
@@ -407,7 +86,7 @@ const handleCreateTeacher = async () => {
     setPhoneNumber("");
   } catch (err) {
     console.error(err);
-    alert("❌ Failed to create teacher. Please check backend or inputs.");
+    alert("❌ Failed to create teacher. Please check backend.");
   } finally {
     // success
     setLoading(false);
@@ -427,7 +106,7 @@ const handleUpdateTeacher = async () => {
 
   try {
     await axios.post("https://institute-back-end.onrender.com/updateteacher", {
-      id: selectedId, // jake update 
+      id: selectedId, // jake update korbo
       teachername,
       departmentname,
       teacherid,

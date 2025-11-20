@@ -1,42 +1,34 @@
-
-
-
-
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 
 
-
-
-
-.login{
-    padding-top: 80px;
-    background: rgb(155, 107, 107);
-    height: 100vh;
+.login {
+  padding-top: 80px;
+  background: rgb(155, 107, 107);
+  height: 100vh;
 }
 
-.main{
-    display: flex;
+.main {
+  display: flex;
 }
 
-.left{
-    width: 20%;
+.left {
+  width: 20%;
 }
 
-.right{
-    width: 80%;
+.right {
+  width: 80%;
 }
 
-.sidebar{
-    background-color: blueviolet;
-    height: 100vh;
-    color: white;
+.sidebar {
+  background-color: blueviolet;
+  height: 100vh;
+  color: white;
 }
 
 
-.list{
-    padding-top: 150px;
+.list {
+  padding-top: 150px;
 }
 
 /* 
@@ -46,20 +38,6 @@
     background-repeat: no-repeat;
     background-position: center;
 } */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -160,13 +138,27 @@
 
 /* ====== ANIMATIONS ====== */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsive */
@@ -175,9 +167,11 @@
     width: 90px;
     height: 90px;
   }
+
   .institute-title {
     font-size: 1.4rem;
   }
+
   .form-container {
     padding: 25px;
   }
@@ -194,7 +188,7 @@ button {
 
 button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -211,7 +205,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 3px 0 8px rgba(0,0,0,0.1);
+  box-shadow: 3px 0 8px rgba(0, 0, 0, 0.1);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -254,16 +248,16 @@ button:hover {
 
 .sidebar button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* end here */
 
 
 
-.offcanvas-bottom{
+.offcanvas-bottom {
   height: 100vh !important;
- 
+
 }
 
 
@@ -277,7 +271,7 @@ button:hover {
   flex: 0 0 250px;
   background: #002b5b;
   color: white;
-  
+
 
 }
 
@@ -362,6 +356,7 @@ button:hover {
   .left {
     display: none;
   }
+
   .right {
     padding: 15px;
   }
@@ -385,7 +380,7 @@ button:hover {
 .left {
   width: 250px;
   background: #fff;
-  box-shadow: 0 0 10px rgba(0,0,0,0.08);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
 }
 
 .right {
@@ -437,7 +432,7 @@ button.btn-info:hover {
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
 }
 
 .table th {
@@ -462,7 +457,7 @@ button.btn-info:hover {
 /* ======= MODAL FORM ======= */
 .modal-content {
   border-radius: 14px !important;
-  box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
 }
 
 .modal-header {
@@ -484,7 +479,7 @@ button.btn-info:hover {
   .main {
     flex-direction: column;
   }
-  
+
   .left {
     width: 100%;
     box-shadow: none;

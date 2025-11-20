@@ -8,6 +8,8 @@ import PDF from "./pages/PDF";
 import 'animate.css';
 import Leave from "./pages/Leave";
 import Result from "./pages/Result";
+import Payment from "./pages/Payment";
+import PaymentSuccess from "./pages/PaymentSuccess";
 
 
 
@@ -24,6 +26,8 @@ const App = () => {
         <Route path="/pdf" element={<PDF />} />
         <Route path="/leave" element={<Leave />} />
         <Route path="/result" element={<Result />} />
+        <Route path="/payment" element={<Payment />} />
+        <Route path="/paymentsuccess" element={<PaymentSuccess />} />
       </Routes>
     </>
   );

@@ -8,7 +8,7 @@
 // import Table from 'react-bootstrap/Table';
 // import axios from 'axios';
 // import { data } from 'react-router';
- 
+
 
 
 // const Result = () => {
@@ -101,7 +101,7 @@
 //           <Modal.Title> Add Result </Modal.Title>
 //         </Modal.Header>
 //         <Modal.Body>
-            
+
 //              <Form.Label>Department</Form.Label>
 //       <Form.Control
 //         type="text"
@@ -118,7 +118,7 @@
 //          <option value={item._id}> {item.studentname} </option>
 
 //       ))};
-     
+
 //     </Form.Select>
 //     <br />
 
@@ -148,9 +148,9 @@
 
 //     ))}
 
-    
-      
-    
+
+
+
 //       </Modal.Body>
 //         <Modal.Footer>
 //           <Button variant="secondary" onClick={handleClose}>
@@ -187,8 +187,8 @@
 //         </tr>
 
 //         })}
-        
-       
+
+
 //       </tbody>
 //     </Table>
 
@@ -196,8 +196,8 @@
 //        </div>
 
 //        </div>
-       
-      
+
+
 //     </div>
 //   )
 // }
@@ -348,9 +348,10 @@ const Result = () => {
 
       <div className="right">
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
-          <h4 style={{ margin: 0 }}>Results</h4>
-          <Button variant="primary" onClick={openModal}>Add Result</Button>
+          <h4 style={{ margin: 0 }}> 📊 Result Management</h4>
+          <Button variant="primary" onClick={openModal}>  ➕ Add Result</Button>
         </div>
+
 
         {/* Add Result Modal */}
         <Modal show={showModal} onHide={closeModal}>
