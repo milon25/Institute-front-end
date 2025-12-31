@@ -36,13 +36,13 @@ const Login = () => {
       setLoading(true);
       const res = await axios.post("https://institute-back-end.onrender.com/login", formData);
 
-      // message show + redirect
+
       if (res.status === 200) {
         setSuccess(res.data.message || "✅ Login successful!");
-        // save user info
+
         localStorage.setItem("user", JSON.stringify(res.data.user));
 
-        // redirect
+
         setTimeout(() => navigate("/teacher"), 1500);
       }
     } catch (err) {
@@ -54,9 +54,9 @@ const Login = () => {
     }
   };
 
-  useEffect(()=> {
+  useEffect(() => {
     let data = localStorage.getItem("user");
-    if(data){
+    if (data) {
       navigate("/student");
     }
   }, [navigate]);

@@ -135,7 +135,7 @@ const Registration = () => {
                   onChange={handleChange}
                 />
 
-                {/* 👁️ Show/Hide Button */}
+                {/* Show/Hide Button */}
                 <span
                   onClick={() => setShowPassword(!showPassword)}
                   style={{
